@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "./app-routing.module";
 import { BannedUsersComponent } from './banned-users/banned-users.component';
+import { MapBonusesComponent } from './map-bonuses/map-bonuses.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BannedUsersComponent
+    BannedUsersComponent,
+    MapBonusesComponent
   ],
   imports: [
     BrowserModule,
