@@ -1,0 +1,7 @@
+.resources-container{
+  .col{
+    &:first-child{
+      width: 10%;
+    }
+  }
+}

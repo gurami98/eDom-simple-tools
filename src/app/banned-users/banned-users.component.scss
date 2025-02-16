@@ -3,12 +3,7 @@
   text-align: center;
 }
 .banned-users-container{
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  overflow: auto;
   .col{
-    width: 25%;
     &:first-child,
     &:nth-child(2),
     &:nth-child(4),
@@ -17,38 +12,12 @@
       width: 10%;
     }
   }
-  .banned-users-container-header{
-    display: flex;
-    gap: 16px;
-    width: 100%;
-    align-items: center;
-    border: 1px solid black;
-  }
   .banned-user-container{
-    border: 1px solid black;
-    border-top: 0;
-    display: flex;
-    gap: 16px;
-    height: 60px;
-    width: 100%;
-    align-items: center;
-    cursor: pointer;
-    &:hover{
-      background: lightgray;
-    }
     .img-container{
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      img{
-        width: 55px;
-        height: 55px;
-      }
       .strength-img{
         width: 30px;
         height: 30px;
       }
     }
   }
-
 }

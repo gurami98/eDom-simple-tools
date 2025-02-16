@@ -1,6 +1,6 @@
 <h1 class="banned-title">BANNED PEOPLE</h1>
-<div class="banned-users-container">
-  <div class="banned-users-container-header">
+<div class="table-container banned-users-container">
+  <div class="table-header-container banned-users-container-header">
     <div class="col">
       <p>Avatar</p>
     </div>
@@ -24,7 +24,7 @@
     </div>
   </div>
   <div *ngFor="let user of bannedUsers"
-       class="banned-user-container"
+       class="table-row-container banned-user-container"
        (click)="openProfile(user.ID)">
     <div class="col img-container">
       <img [src]="'https://edominations.com/public/upload/citizen/' + user.Avatar + '.jpg'" alt="avatar">

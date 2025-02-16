@@ -1,1 +1,34 @@
-<p>map-bonuses works!</p>
+<div class="table-container resources-container">
+  <div class="table-header-container resources-header-container">
+    <div class="col">
+      <p>ID</p>
+    </div>
+    <div class="col">
+      <p>Resource</p>
+    </div>
+    <div class="col">
+      <p>Owner</p>
+    </div>
+    <div class="col">
+      <p>Original Owner</p>
+    </div>
+  </div>
+  <div *ngFor="let resource of resources"
+       class="table-row-container resource-container"
+       (click)="openRegion(resource)"
+  >
+    <div class="col">{{resource.regionID}}</div>
+    <div class="col img-container">
+      <img [src]="'https://edominations.com/public/game/resource/' + resource.resource + '.png'" alt="">
+      <p>{{resource.resource}}</p>
+    </div>
+    <div class="col img-container">
+      <img [src]="'https://edominations.com/public/game/flags/flat/32/' + resource.owner_current_value + '.png'" alt="rank">
+      <p>{{resource.owner_current_name}}</p>
+    </div>
+    <div class="col img-container">
+      <img [src]="'https://edominations.com/public/game/flags/flat/32/' + resource.owner_original_value + '.png'" alt="rank">
+      <p>{{resource.owner_original_name}}</p>
+    </div>
+  </div>
+</div>
