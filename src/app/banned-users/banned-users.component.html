@@ -1,0 +1,53 @@
+<h1 class="banned-title">BANNED PEOPLE</h1>
+<div class="banned-users-container">
+  <div class="banned-users-container-header">
+    <div class="col">
+      <p>Avatar</p>
+    </div>
+    <div class="col">
+      <p>ID</p>
+    </div>
+    <div class="col">
+      <p>Name</p>
+    </div>
+    <div class="col">
+      <p>Level</p>
+    </div>
+    <div class="col">
+      <p>Country</p>
+    </div>
+    <div class="col">
+      <p>Strength</p>
+    </div>
+    <div class="col">
+      <p>Rank</p>
+    </div>
+  </div>
+  <div *ngFor="let user of bannedUsers"
+       class="banned-user-container"
+       (click)="openProfile(user.ID)">
+    <div class="col img-container">
+      <img [src]="'https://edominations.com/public/upload/citizen/' + user.Avatar + '.jpg'" alt="avatar">
+    </div>
+    <div class="col">
+      <p>{{user.ID}}</p>
+    </div>
+    <div class="col">
+      <p>{{user.Name}}</p>
+    </div>
+    <div class="col">
+      <p>{{user.Level}}</p>
+    </div>
+    <div class="col img-container">
+      <img [src]="'https://edominations.com/public/game/flags/flat/32/' + user.CountryValue + '.png'" alt="rank">
+      <p>{{user.CountryName}}</p>
+    </div>
+    <div class="col img-container">
+      <p>{{user.Strength}}</p>
+      <img class="strength-img" src="https://edominations.com/public/game/icons/big_strength.png" alt="muscle">
+    </div>
+    <div class="col img-container">
+      <img [src]="'https://edominations.com/public/game/ranks/' + user.MilitaryRank + '.png'" alt="rank">
+    </div>
+  </div>
+</div>
