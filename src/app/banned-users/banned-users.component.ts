@@ -71,6 +71,15 @@ export class BannedUsersComponent implements OnInit {
 
   get bannedUsers():User[] {
     const bannedUsers = this.allUsers.filter(user => (user.Banned === "Yes" && user.LastSeen >= (this.currentEdomDay - 14)));
+    console.log(bannedUsers.sort((a, b) => b.Level - a.Level).map(user => {
+      return {
+        id: user.ID,
+        name: user.Name,
+        level: user.Level,
+        strength: user.Strength,
+        country: user.CountryName,
+      }
+    }))
     return bannedUsers.sort((a, b) => b.Level - a.Level);
   }
 
