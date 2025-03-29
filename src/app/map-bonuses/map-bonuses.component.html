@@ -1,4 +1,23 @@
 <h1 class="resources-title">Resources</h1>
+
+<div class="filters-container">
+  <h2>Filters</h2>
+  <br>
+  <label for="resourceTypes">Resource Type</label>
+  <br>
+  <select id="resourceTypes" name="resourceTypes" [(ngModel)]="resourceType">
+    <option value="weapon">Weapon</option>
+    <option value="food">Food</option>
+    <option value="house">House</option>
+  </select>
+
+  <br><br>
+
+  <label for="rarity">Rarity</label>
+  <br>
+  <input type="checkbox" id="rarity" name="rarity" [(ngModel)]="resourceRarity">
+</div>
+
 <div class="table-container resources-container">
   <div class="table-header-container resources-header-container">
     <div class="col">
@@ -14,7 +33,7 @@
       <p>Original Owner</p>
     </div>
   </div>
-  <div *ngFor="let resource of resources"
+  <div *ngFor="let resource of filteredResources"
        class="table-row-container resource-container"
        (click)="openRegion(resource)"
   >

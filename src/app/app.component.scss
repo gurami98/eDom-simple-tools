@@ -1,0 +1,10 @@
+.menu-container{
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+}
+
+.active-menu{
+  color: blue;
+  text-decoration: underline;
+}

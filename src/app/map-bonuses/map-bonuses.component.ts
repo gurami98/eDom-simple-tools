@@ -11,7 +11,19 @@ import {countries} from "../countries";
 })
 export class MapBonusesComponent implements OnInit {
   resources: Resource[] = [];
+  resourceType: string = 'weapon';
+  resourceRarity: boolean = true;
 
+  resourceTypes: Record<string, string[]> = {
+    food: ["Salt", "Grain", "Fruit", "Seafood", "Meat"],
+    weapon: ["Steel", "Petrol", "Rubber", "Aluminum", "Saltpeter"],
+    house: ["Wood", "Clay", "Cement", "Bitumen", "Stone"]
+  };
+  rareResourceTypes: Record<string, string[]> = {
+    food: ["Meat"],
+    weapon: ["Petrol"],
+    house: ["Clay"]
+  };
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -41,5 +53,10 @@ export class MapBonusesComponent implements OnInit {
       `https://edominations.com/en/country/region/${resource.owner_current_id}/${resource.owner_current_value}/${resource.regionID}`,
       '_blank'
     )
+  }
+
+  get filteredResources(){
+    return !this.resourceRarity ? this.resources.filter(resource => this.resourceTypes[this.resourceType].includes(resource.resource)) :
+      this.resources.filter(resource => this.rareResourceTypes[this.resourceType].includes(resource.resource))
   }
 }

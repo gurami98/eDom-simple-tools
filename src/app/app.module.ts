@@ -6,6 +6,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "./app-routing.module";
 import { BannedUsersComponent } from './banned-users/banned-users.component';
 import { MapBonusesComponent } from './map-bonuses/map-bonuses.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -13,11 +14,12 @@ import { MapBonusesComponent } from './map-bonuses/map-bonuses.component';
     BannedUsersComponent,
     MapBonusesComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
