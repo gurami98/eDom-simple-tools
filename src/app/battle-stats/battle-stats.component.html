@@ -1,1 +1,77 @@
-<p>battle-stats works!</p>
+<h1 class="battles-title">BATTLE STATS</h1>
+
+<div class="battle-check-container">
+  <label for="battleId">Put battle ID</label>
+  <input type="number" id="battleId" name="battleId" [formControl]="battleIdFormControl">
+  <button [disabled]="!battleIdFormControl.valid" (click)="getBattleStats()">check</button>
+</div>
+
+
+<div class="battle-stats-container" *ngIf="userStats.length">
+  <div class="table-container">
+    Soldier count: {{attackingSide.length}}
+    <div class="table-header-container">
+      <div class="col">
+        <p>Avatar</p>
+      </div>
+      <div class="col">
+        <p>Name</p>
+      </div>
+      <div class="col">
+        <p>Hits</p>
+      </div>
+      <div class="col">
+        <p>Damage</p>
+      </div>
+    </div>
+    <div *ngFor="let user of attackingSide"
+         class="table-row-container" (click)="openProfile(user.ID)">
+      <div class="col img-container">
+        <img [src]="'https://edominations.com/public/upload/citizen/' + user.ID + '.webp'" alt="avatar">
+      </div>
+      <div class="col">
+        <p>{{ user.Name }}</p>
+      </div>
+      <div class="col">
+        <p>{{ user.Hits }}</p>
+      </div>
+      <div class="col">
+        <p>{{ user.DMG.toLocaleString() }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="table-container">
+    Soldier count: {{defendingSide.length}}
+    <div class="table-header-container">
+      <div class="col">
+        <p>Avatar</p>
+      </div>
+      <div class="col">
+        <p>Name</p>
+      </div>
+      <div class="col">
+        <p>Hits</p>
+      </div>
+      <div class="col">
+        <p>Damage</p>
+      </div>
+    </div>
+    <div *ngFor="let user of defendingSide"
+         class="table-row-container" (click)="openProfile(user.ID)">
+      <div class="col img-container">
+        <img [src]="'https://edominations.com/public/upload/citizen/' + user.ID + '.webp'" alt="avatar">
+      </div>
+      <div class="col">
+        <p>{{ user.Name }}</p>
+      </div>
+      <div class="col">
+        <p>{{ user.Hits }}</p>
+      </div>
+      <div class="col">
+        <p>{{ user.DMG.toLocaleString() }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+

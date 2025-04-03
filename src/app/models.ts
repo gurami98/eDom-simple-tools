@@ -31,6 +31,19 @@ export interface Resource {
   regionID: string;
 }
 
+export interface UserStats{
+  DMG: number;
+  Hits: number;
+  ID: number;
+  Name: string;
+  SIDE: "attack" | "defense";
+  Unit: number;
+}
+
 export interface ResourcesResponse {
   [id: number]: Resource;
+}
+
+export interface BattleStatsResponse {
+  [id: number]: UserStats;
 }
