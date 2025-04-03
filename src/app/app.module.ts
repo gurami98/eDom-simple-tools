@@ -7,12 +7,14 @@ import {AppRoutingModule} from "./app-routing.module";
 import { BannedUsersComponent } from './banned-users/banned-users.component';
 import { MapBonusesComponent } from './map-bonuses/map-bonuses.component';
 import {FormsModule} from "@angular/forms";
+import { BattleStatsComponent } from './battle-stats/battle-stats.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BannedUsersComponent,
-    MapBonusesComponent
+    MapBonusesComponent,
+    BattleStatsComponent
   ],
     imports: [
         BrowserModule,
