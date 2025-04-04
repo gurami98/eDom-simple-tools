@@ -30,8 +30,9 @@ export class BattleStatsComponent implements OnInit {
   }
 
   getBattleStats(){
-    const url = environment.production ? `${this.netlifyFunctionUrl}/${this.battleIdFormControl.value}` :
-      `${this.baseUrl}/${this.battleIdFormControl.value}`;
+    // const url = environment.production ? `${this.netlifyFunctionUrl}/${this.battleIdFormControl.value}` :
+    //   `${this.baseUrl}/${this.battleIdFormControl.value}`;
+    const url = `${this.netlifyFunctionUrl}/${this.battleIdFormControl.value}`
     this.http.get<BattleStatsResponse>(url).pipe(
       tap(users => {
         for (let usersKey in users) {
