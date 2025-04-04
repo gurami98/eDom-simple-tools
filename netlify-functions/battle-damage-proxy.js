@@ -10,6 +10,7 @@ exports.handler = async function(event, context) {
   try {
     // Make the request to the third-party API
     const response = await fetch(apiUrl);
+    console.log(response, 'response')
 
     // Log the response status and URL
     console.log(`API response status for ${apiUrl}: ${response.status}`);
