@@ -1,0 +1,3 @@
+[build]
+  functions = "netlify-functions"  # Specifies the folder where functions are stored
+  publish = "dist"                 # Tells Netlify to publish the contents of the `dist` folder

@@ -3,6 +3,7 @@ import {UntypedFormControl, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {tap} from "rxjs";
 import {BattleStatsResponse, UserStats} from "../models";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-battle-stats',
@@ -11,6 +12,8 @@ import {BattleStatsResponse, UserStats} from "../models";
 })
 export class BattleStatsComponent implements OnInit {
   baseUrl = 'https://edominations.com/en/api/battle-damage'
+  private netlifyFunctionUrl = '/.netlify/functions/battle-damage-proxy';
+
   battleIdFormControl = new UntypedFormControl('', Validators.required);
   userStats: UserStats[] = [];
   attackingSide: UserStats[] = [];
@@ -27,7 +30,8 @@ export class BattleStatsComponent implements OnInit {
   }
 
   getBattleStats(){
-    const url = `${this.baseUrl}/${this.battleIdFormControl.value}`;
+    const url = environment.production ? `${this.netlifyFunctionUrl}/${this.battleIdFormControl.value}` :
+      `${this.baseUrl}/${this.battleIdFormControl.value}`;
     this.http.get<BattleStatsResponse>(url).pipe(
       tap(users => {
         for (let usersKey in users) {
