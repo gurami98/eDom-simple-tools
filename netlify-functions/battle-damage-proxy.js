@@ -12,7 +12,8 @@ exports.handler = async function(event, context) {
         statusCode: response.status,
         body: JSON.stringify({ error: 'Failed to fetch data from the API' }),
         headers: {
-          'Access-Control-Allow-Origin': '*',  // Allow all origins
+          'Access-Control-Allow-Origin': '*',  // Allow requests from all origins
+          'Content-Type': 'application/json',
         },
       };
     }
@@ -24,7 +25,9 @@ exports.handler = async function(event, context) {
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',  // Allow all origins
+        'Access-Control-Allow-Origin': '*',  // Allow requests from all origins
+        'Access-Control-Allow-Headers': 'Content-Type', // Ensure proper headers for CORS
+        'Access-Control-Allow-Methods': 'GET, OPTIONS', // Allow GET requests
       },
     };
   } catch (error) {
@@ -32,7 +35,7 @@ exports.handler = async function(event, context) {
       statusCode: 500,
       body: JSON.stringify({ error: 'Server error while fetching data' }),
       headers: {
-        'Access-Control-Allow-Origin': '*',  // Allow all origins
+        'Access-Control-Allow-Origin': '*',  // Allow requests from all origins
       },
     };
   }
