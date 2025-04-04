@@ -1,39 +1,39 @@
 exports.handler = async function(event, context) {
-  // Dynamically import node-fetch to avoid issues with ESM in CommonJS
   const { default: fetch } = await import('node-fetch');  // Ensure 'node-fetch' is installed for making HTTP requests
 
-  // Extract the ID from the URL (e.g., /battle-damage/123)
   const id = event.path.split('/').pop();
-
-  // Construct the URL for the third-party API
   const apiUrl = `https://edominations.com/en/api/battle-damage/${id}`;
 
   try {
-    // Fetch the data from the third-party API
     const response = await fetch(apiUrl);
 
     if (!response.ok) {
       return {
         statusCode: response.status,
         body: JSON.stringify({ error: 'Failed to fetch data from the API' }),
+        headers: {
+          'Access-Control-Allow-Origin': '*',  // Allow all origins
+        },
       };
     }
 
-    // Get the JSON response from the API
     const data = await response.json();
 
-    // Return the API response back to the frontend
     return {
       statusCode: 200,
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',  // Allow all origins
       },
     };
   } catch (error) {
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Server error while fetching data' }),
+      headers: {
+        'Access-Control-Allow-Origin': '*',  // Allow all origins
+      },
     };
   }
 };
