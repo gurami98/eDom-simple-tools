@@ -1,6 +1,7 @@
-const fetch = require('node-fetch');  // Ensure 'node-fetch' is installed for making HTTP requests
-
 exports.handler = async function(event, context) {
+  // Dynamically import node-fetch to avoid issues with ESM in CommonJS
+  const { default: fetch } = await import('node-fetch');  // Ensure 'node-fetch' is installed for making HTTP requests
+
   // Extract the ID from the URL (e.g., /battle-damage/123)
   const id = event.path.split('/').pop();
 
