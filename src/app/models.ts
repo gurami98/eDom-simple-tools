@@ -12,6 +12,7 @@ export interface User {
   CountryID: number;
   CountryName: string;
   CountryValue: string;
+  CS: string;
 }
 
 export interface UsersResponse {
@@ -38,6 +39,7 @@ export interface UserStats{
   Name: string;
   SIDE: "attack" | "defense";
   Unit: number;
+  CS: string;
 }
 
 export interface ResourcesResponse {
