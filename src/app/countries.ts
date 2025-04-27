@@ -1,3 +1,6 @@
+// export const countries = [
+//   {"id": 29, "name": "Georgia", "value": "Georgia"},
+// ]
 export const countries = [
   {"id": 1, "name": "Afghanistan", "value": "Afghanistan"},
   {"id": 2, "name": "Albania", "value": "Albania"},

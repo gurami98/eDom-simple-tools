@@ -1,0 +1,42 @@
+<h1 class="title">Last 30 day stats</h1>
+<button (click)="sortByDmgRanking()" style="margin-left: 16px">sort by dmg</button>
+<button (click)="sortByHitRanking()" style="margin-left: 16px">sort by hits</button>
+<p class="total-count">total count: {{rankingArray.length}}</p>
+<div class="table-container banned-users-container">
+  <div class="table-header-container banned-users-container-header">
+    <div class="col">
+      <p>#</p>
+    </div>
+    <div class="col">
+      <p>ID</p>
+    </div>
+    <div class="col">
+      <p>Name</p>
+    </div>
+    <div class="col">
+      <p>Hits</p>
+    </div>
+    <div class="col">
+      <p>Damage</p>
+    </div>
+  </div>
+  <div *ngFor="let user of rankingArray; let i = index;"
+       class="table-row-container banned-user-container"
+       (click)="openProfile(user.ID)">
+    <div class="col">
+      <p>{{i+1}}</p>
+    </div>
+    <div class="col">
+      <p>{{user.ID}}</p>
+    </div>
+    <div class="col">
+      <p>{{user.Name}}</p>
+    </div>
+    <div class="col">
+      <p>{{user.Hits.toLocaleString()}}</p>
+    </div>
+    <div class="col">
+      <p>{{user.DMG.toLocaleString()}}</p>
+    </div>
+  </div>
+</div>

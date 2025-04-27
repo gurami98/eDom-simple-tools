@@ -15,18 +15,6 @@ input{
   border: 1px solid black;
 }
 
-button{
-  border: 1px solid black;
-  background-color: blue;
-  border-radius: 4px;
-  color: white;
-  padding: 12px;
-  width: 200px;
-  &:hover{
-    opacity: 0.8;
-  }
-}
-
 button:disabled{
   opacity: 0.8;
   background-color: gray;

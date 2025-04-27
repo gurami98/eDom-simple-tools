@@ -8,13 +8,15 @@ import { BannedUsersComponent } from './banned-users/banned-users.component';
 import { MapBonusesComponent } from './map-bonuses/map-bonuses.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BattleStatsComponent } from './battle-stats/battle-stats.component';
+import { MonthlyStatsComponent } from './monthly-stats/monthly-stats.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BannedUsersComponent,
     MapBonusesComponent,
-    BattleStatsComponent
+    BattleStatsComponent,
+    MonthlyStatsComponent
   ],
   imports: [
     BrowserModule,
