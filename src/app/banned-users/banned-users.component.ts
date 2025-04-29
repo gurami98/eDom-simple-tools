@@ -92,4 +92,11 @@ export class BannedUsersComponent implements OnInit {
     window.open(`https://edominations.com/en/profile/${userId}`, '_blank')
   }
 
+  parseDateFromLastSeen(LastSeen: number){
+    const lastSeenDate = new Date(this.game_date_start.getTime() + LastSeen * 24 * 60 * 60 * 1000);
+    const formattedDate = lastSeenDate.toISOString().split('T')[0];
+    const [year, month, day] = formattedDate.split('-');
+    return `${day}-${month}-${year}`;
+  }
+
 }

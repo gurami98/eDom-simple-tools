@@ -23,6 +23,9 @@
     <div class="col">
       <p>Rank</p>
     </div>
+    <div class="col">
+      <p>Last Seen</p>
+    </div>
   </div>
   <div *ngFor="let user of bannedUsers"
        class="table-row-container banned-user-container"
@@ -49,6 +52,9 @@
     </div>
     <div class="col img-container">
       <img [src]="'https://edominations.com/public/game/ranks/' + user.MilitaryRank + '.png'" alt="rank">
+    </div>
+    <div class="col">
+      <p>Day {{user.LastSeen}} ({{parseDateFromLastSeen(user.LastSeen)}})</p>
     </div>
   </div>
 </div>
