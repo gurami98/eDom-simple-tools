@@ -11,7 +11,7 @@ import {HttpClient} from "@angular/common/http";
 export class MonthlyStatsComponent implements OnInit {
   baseUrl = 'https://edominations.com/en/api/battle-damage'
   firstBattleId: number = 79843;
-  lastBattleId: number = 81004;
+  lastBattleId: number = 81087;
   ranking: { [playerId: number]: UserStats } = {};
   rankingArray: Array<UserStats> = [];
   countryRanking: { [country: string]: { DMG: number; Hits: number } } = {};

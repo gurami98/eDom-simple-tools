@@ -80,7 +80,12 @@ export class BannedUsersComponent implements OnInit {
         country: user.CountryName,
       }
     }))
-    return bannedUsers.sort((a, b) => b.Level - a.Level);
+    return bannedUsers.sort((a, b) => {
+      if (b.LastSeen !== a.LastSeen) {
+        return b.LastSeen - a.LastSeen;
+      }
+      return b.Level - a.Level;
+    });
   }
 
   openProfile(userId: number){
