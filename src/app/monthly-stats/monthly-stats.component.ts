@@ -10,8 +10,9 @@ import {HttpClient} from "@angular/common/http";
 })
 export class MonthlyStatsComponent implements OnInit {
   baseUrl = 'https://edominations.com/en/api/battle-damage'
-  firstBattleId: number = 79843;
-  lastBattleId: number = 81087;
+  firstBattleIdApril: number = 79843;
+  lastBattleIdApril: number = 81133;
+  firstBattleIdMay: number = 81134;
   ranking: { [playerId: number]: UserStats } = {};
   rankingArray: Array<UserStats> = [];
   countryRanking: { [country: string]: { DMG: number; Hits: number } } = {};
@@ -32,8 +33,8 @@ export class MonthlyStatsComponent implements OnInit {
   getStats(){
     const requests = [];
 
-    for (let id = this.firstBattleId; id <= this.lastBattleId; id++) {
-      requests.push(this.http.get(`${this.baseUrl}/${id}`)); // Replace with your real API
+    for (let id = this.firstBattleIdApril; id <= this.lastBattleIdApril; id++) {
+      requests.push(this.http.get(`${this.baseUrl}/${id}`));
     }
 
     forkJoin(requests).subscribe((stats: any) => {
