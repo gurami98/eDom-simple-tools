@@ -4,6 +4,7 @@ import {BannedUsersComponent} from "./banned-users/banned-users.component";
 import {MapBonusesComponent} from "./map-bonuses/map-bonuses.component";
 import {BattleStatsComponent} from "./battle-stats/battle-stats.component";
 import {MonthlyStatsComponent} from "./monthly-stats/monthly-stats.component";
+import {WeeklyStatsComponent} from "./weekly-stats/weekly-stats.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'monthly-stats',
     component: MonthlyStatsComponent
+  },
+  {
+    path: 'weekly-stats',
+    component: WeeklyStatsComponent
   }
 ];
 

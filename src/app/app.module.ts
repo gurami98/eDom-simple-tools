@@ -9,6 +9,7 @@ import { MapBonusesComponent } from './map-bonuses/map-bonuses.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BattleStatsComponent } from './battle-stats/battle-stats.component';
 import { MonthlyStatsComponent } from './monthly-stats/monthly-stats.component';
+import { WeeklyStatsComponent } from './weekly-stats/weekly-stats.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MonthlyStatsComponent } from './monthly-stats/monthly-stats.component';
     BannedUsersComponent,
     MapBonusesComponent,
     BattleStatsComponent,
-    MonthlyStatsComponent
+    MonthlyStatsComponent,
+    WeeklyStatsComponent
   ],
   imports: [
     BrowserModule,
