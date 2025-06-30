@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {User, UsersResponse} from "../models";
-import {HttpClient} from "@angular/common/http";
+import {User} from "../models";
 import {countries} from "../countries";
-import {tap} from "rxjs";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-banned-users',
@@ -11,7 +10,9 @@ import {tap} from "rxjs";
 })
 export class BannedUsersComponent implements OnInit {
   title = 'eDominations-banned-counter';
-  allUsers: User[] = []
+  get allUsers(){
+    return this.userService.allUsers;
+  }
 
   game_date_start = new Date('2017-04-25');
   game_date_today = new Date();
@@ -19,27 +20,11 @@ export class BannedUsersComponent implements OnInit {
   diffMilliseconds = this.game_date_today.getTime() - this.game_date_start.getTime();
   currentEdomDay = Math.floor(this.diffMilliseconds / (1000 * 60 * 60 * 24));
 
-  constructor(private http: HttpClient) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     console.log(countries)
     console.log(`Current eDom Day ${this.currentEdomDay}`);
-    this.fetchAllUsers();
-  }
-
-  fetchAllUsers(){
-    countries.forEach(country => {
-      this.http.get<UsersResponse>(`https://edominations.com/en/api/citizenship/${country.id}`).pipe(
-        tap((users) => {
-          for (let usersKey in users) {
-            users[usersKey].CountryID = country.id;
-            users[usersKey].CountryValue = country.value;
-            users[usersKey].CountryName = country.name;
-            this.allUsers.push(users[usersKey]);
-          }
-        })
-      ).subscribe()
-    })
   }
 
   get bannedUsers():User[] {
