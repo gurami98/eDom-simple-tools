@@ -13,6 +13,8 @@ export interface User {
   CountryName: string;
   CountryValue: string;
   CS: string;
+  Last7DaysDamage: number;
+  Last7DaysHit: number;
 }
 
 export interface UsersResponse {
