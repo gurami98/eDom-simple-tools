@@ -5,6 +5,7 @@ import {MapBonusesComponent} from "./map-bonuses/map-bonuses.component";
 import {BattleStatsComponent} from "./battle-stats/battle-stats.component";
 import {MonthlyStatsComponent} from "./monthly-stats/monthly-stats.component";
 import {WeeklyStatsComponent} from "./weekly-stats/weekly-stats.component";
+import {DamageCalculatorComponent} from "./damage-calculator/damage-calculator.component";
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'weekly-stats',
     component: WeeklyStatsComponent
+  },
+  {
+    path: 'damage-calculator',
+    component: DamageCalculatorComponent
   }
 ];
 
